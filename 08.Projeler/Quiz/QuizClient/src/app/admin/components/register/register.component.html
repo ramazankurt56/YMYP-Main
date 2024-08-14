@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="part-1" style="display: flex; align-items: center; height: 99vh;">
+        <img src="/login.jpg" alt="" style="width: 100%;">
+    </div>
+    <div class="part-2">
+        <div class="login-form-group">
+            <div class="mt-1">
+                <h1>Admin Kayıt Sayfası</h1>
+            </div>
+            <div class="mt-1">
+                <label>Kullanıcı Adı</label>
+                <input [(ngModel)]="model().userName" type="text">
+            </div>
+            <div class="mt-1">
+                <label>Şifre</label>
+                <input [(ngModel)]="model().password" type="text">
+            </div>
+            <div class="mt-1" style="display: flex; justify-content: space-between;">
+                <button (click)="signIn()">Kayıt ol</button>
+                <a routerLink="/admin/login">Zaten hesabınız var mı? Giriş yap</a>
+            </div>
+            
+        </div>
+    </div>    
+</div>

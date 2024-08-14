@@ -1,0 +1,27 @@
+<div class="flex">
+    @if(isLastQuestion()){
+        <h1>Quiz tamamlandı. Tebrikler</h1>
+        <button [routerLink]="url()">Oda ekranına dönmek için tıklayın</button>
+    }
+    <table>        
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Kullanıcı Adı</th>
+                <th>Puan</th>
+            </tr>            
+        </thead>
+        <tbody>
+            @for(item of participants(); track item.email){
+                <tr>
+                    <td>{{$index}}</td>
+                    <td>{{item.userName}}</td>
+                    <td>{{item.point}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @if(!isLastQuestion()){
+        <span class="time2">{{time()}}</span>
+    }
+</div>

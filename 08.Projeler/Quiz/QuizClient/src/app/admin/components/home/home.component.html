@@ -1,0 +1,35 @@
+<div class="div-group">    
+    <button (click)="showModal.set(true)">Add Quiz</button>    
+    <div class="row">
+        @for(quiz of quizzes(); track quiz.id){
+            <div class="card">
+                <h3>{{quiz.title}}</h3>
+                <h3>{{quiz.roomNumber}}</h3>
+                <button routerLink="/admin/room/{{quiz.roomNumber}}">Goto Room</button>
+                <i routerLink="/admin/quiz-detail/{{quiz.id}}" class="fa-solid fa-edit card-edit-btn">
+                </i>
+                <i (click)="delete(quiz.id)" class="fa-solid fa-trash card-remove-btn">
+                </i>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="modal" [ngStyle]="{'display': showModal() ? 'flex' : 'none'}">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1>Add Quiz Modal</h1>            
+            <p>You can add quiz here</p>
+            <div class="modal-close-btn" (click)="showModal.set(false)">x</div>
+        </div>
+        <div class="modal-body">
+            <div>
+                <label>Quiz Name</label>
+                <input [(ngModel)]="addModel().title" type="text">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button (click)="create()">Save</button>
+        </div>
+    </div>
+</div>
